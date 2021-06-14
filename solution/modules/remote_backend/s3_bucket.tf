@@ -34,7 +34,15 @@ resource "aws_s3_bucket_policy" "tf-aws-s3-bucket-policy" {
   "Statement": [
     {
       "Sid": "Stmt1623613498956",
-      "Action": "s3:*",
+      "Action": [ s3:GetBucketAcl
+        s3:GetBucketLogging
+        s3:GetObject
+        s3:GetObjectAcl
+        s3:ListBucket
+        s3:PutBucketLogging
+        s3:PutObject
+        s3:PutObjectAcl
+      ]
       "Effect": "Allow",
       Resource = [
           aws_s3_bucket.tf-aws-s3-bucket.arn,
